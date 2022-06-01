@@ -1,3 +1,9 @@
+
+<style>
+	.text-error{
+		color: red;
+	}
+</style>
 <div class="right_col" role="main">
 	<div class="">
 		<div class="page-title">
@@ -20,17 +26,17 @@
 		<div class="clearfix"></div>
 
 		<!-- alert simpan data -->
-		<?php if ($this->session->flashdata('success')):?>
+		<?php if ($this->session->flashdata('success')): ?>
 		<div id="pesan" class="alert alert-success" role="alert">
 			<strong><?=$this->session->flashdata('success');?></strong>
 		</div>
 		<?php endif;?>
 		<!-- aler hapus data -->
-		<?php if ($this->session->flashdata('error')):?>
+		<?php if ($this->session->flashdata('error')): ?>
 		<div id="pesan" class="alert alert-danger" role="alert">
 			<strong><?=$this->session->flashdata('error');?></strong>
 		</div>
-		<?php endif; ?>
+		<?php endif;?>
 
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
@@ -41,8 +47,8 @@
 							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 							</li>
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-										class="fa fa-wrench"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-expanded="false"><i class="fa fa-wrench"></i></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="#">Settings 1</a>
 									</li>
@@ -55,7 +61,8 @@
 						</ul>
 						<div class="clearfix"></div>
 					</div>
-					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#exampleModal">
+					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal"
+						data-target="#exampleModal">
 						Kelola Harga Barang
 					</button>
 					<div class="x_content">
@@ -67,7 +74,6 @@
 									<th>tanggal input</th>
 									<th>nama barang</th>
 									<th style="width: 8%">satuan</th>
-									<th>harga sebelumnya</th>
 									<th>harga sekarang</th>
 									<th>perubahan harga</th>
 									<th>keterangan</th>
@@ -75,24 +81,30 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php $no = 1; 
-                        foreach ($hargaHistori as $key => $value):?>
+								<?php $no = 1;
+foreach ($hargaHistori as $key => $value): ?>
 								<tr>
 									<td><?=$no++?></td>
 									<td><?=$value['tgl_input'];?></td>
 									<td><?=$value['nama_barang'];?></td>
 									<td><?=$value['satuan'];?></td>
-									<td><?="Rp. ".number_format($value['harga']);?></td>
-									<td></td>
-									<td></td>
+									<td><?="Rp. " . number_format($value['harga']);?></td>
 									<td></td>
 									<td>
-										<a href="<?=base_url();?>" class="btn btn-success btn-xs"><i class="fa fa-edit edit-harga" data-id="<?=$value['id_harga']?>">edit</i></a>
-										<a href="#" onclick="deleteHarga(<?=$value['id_harga']?>);" class="btn btn-danger btn-xs"> <i class="fa fa-trash">
+										<button onclick="showModalHistory(<?=$value['id_barang']?>)" type="button"
+											class="btn btn-info btn-xs"><i class="fa fa-info"></i>History Harga</button>
+									</td>
+									<td>
+										<a href="<?=base_url();?>" class="btn btn-success btn-xs"><i
+												class="fa fa-edit edit-harga"
+												data-id="<?=$value['id_harga']?>">edit</i></a>
+										<a href="#" onclick="deleteHarga(<?=$value['id_harga']?>);"
+											class="btn btn-danger btn-xs"> <i class="fa fa-trash">
 												Delete</i> </a>
-											</td>
+												<button onclick="perbaruiHarga(<?=$value['id_barang']?>)" type="button" class="btn btn-success btn-xs"><i class="fa fa-money"></i> Perbarui Harga</button>
+									</td>
 								</tr>
-								<?php endforeach; ?>
+								<?php endforeach;?>
 
 							</tbody>
 						</table>
@@ -121,7 +133,7 @@
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<select name="id_barang" id="" class="form-control">
 								<option value="">--pilih nama barang--</option>
-								<?php foreach ($dataBarang as $key => $value) :?>
+								<?php foreach ($dataBarang as $key => $value): ?>
 								<option value="<?=$value['id_barang']?>"><?=$value['nama_barang']?></option>
 								<?php endforeach;?>
 							</select>
@@ -130,11 +142,11 @@
 
 					<div class="form-group">
 						<label class="control-label col-md-12 col-sm-3 col-xs-12">satuan
-							</label>
-							<div class="col-md-12 col-sm-12 col-xs-12">
-						<select name="satuan" id="" class="form-control">
+						</label>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<select name="satuan" id="" class="form-control">
 								<option value="">--pilih satuan barang--</option>
-								<?php foreach ($dataBarang as $key => $value) :?>
+								<?php foreach ($dataBarang as $key => $value): ?>
 								<option value="<?=$value['id_barang']?>"><?=$value['satuan']?></option>
 								<?php endforeach;?>
 							</select>
@@ -144,7 +156,8 @@
 					<div class="form-group">
 						<label class="control-label col-md-12 col-sm-3 col-xs-12">harga terkahir </label>
 						<div class="col-md-12 col-sm-12 col-xs-12">
-							<input type="number" name="harga_terakhir" class="form-control" required placeholder="masukan harga barang ">
+							<input type="number" name="harga_terakhir" class="form-control" required
+								placeholder="masukan harga barang ">
 							<small>
 								<font color="red">harga barang wajib isi</font>
 							</small>
@@ -155,7 +168,7 @@
             <label class="control-label col-md-12 col-sm-3 col-xs-12">harga sekarang </label>
             <div class="col-md-12 col-sm-12 col-xs-12">
               <input type="number" name="harga_sekarang" class="form-control"required placeholder="masukan harga barang sekarang" >
-              <small>  <font color="red">harga barang sekarang wajib isi</font></small>    
+              <small>  <font color="red">harga barang sekarang wajib isi</font></small>
             </div>
           </div> -->
 
@@ -163,7 +176,7 @@
             <label class="control-label col-md-12 col-sm-3 col-xs-12">perubahan </label>
             <div class="col-md-12 col-sm-12 col-xs-12">
               <input type="number" name="perubahan" class="form-control"required>
-              <small>  <font color="red">perubahan sekarang wajib isi</font></small>    
+              <small>  <font color="red">perubahan sekarang wajib isi</font></small>
             </div>
           </div> -->
 
@@ -171,7 +184,7 @@
             <label class="control-label col-md-12 col-sm-3 col-xs-12">keterangan </label>
             <div class="col-md-12 col-sm-12 col-xs-12">
               <input type="text" name="keterangan" class="form-control"required placeholder="masukan keterangan" >
-              <small>  <font color="red">perubahan sekarang wajib isi</font></small>    
+              <small>  <font color="red">perubahan sekarang wajib isi</font></small>
             </div>
           </div> -->
 
@@ -210,12 +223,12 @@
 </div>
 
 <!-- Modal edit harga -->
-<div class="modal fade" id="edit-harga" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-	aria-hidden="true">
+<div class="modal fade" id="edit-harga" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 	<div class="modal-dialog modal-sm" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 style="text-align: center;" class="modal-title"> <i class="fa fa-refresh"> Update Harga Lama</i></h5>
+				<h5 style="text-align: center;" class="modal-title"> <i class="fa fa-refresh"> Update Harga Lama</i>
+				</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -231,11 +244,13 @@
 					</div>
 					<div class="form-group">
 						<label for="">satuan</label>
-						<input type="text" name="satuan" id="satuan" class="form-control" placeholder="" aria-describedby="helpId">
+						<input type="text" name="satuan" id="satuan" class="form-control" placeholder=""
+							aria-describedby="helpId">
 					</div>
 					<div class="form-group">
 						<label for="">harga sebelumnya</label>
-						<input type="number" name="harga" id="harga" class="form-control" placeholder="" aria-describedby="helpId">
+						<input type="number" name="harga" id="harga" class="form-control" placeholder=""
+							aria-describedby="helpId">
 					</div>
 
 					<!-- <div class="form-group">
@@ -254,40 +269,234 @@
 	</div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="modal-history-harga" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">History Harga</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<!-- history harga -->
+				<div class="x_content">
+							<ul class="list-unstyled timeline history-harga">
+								<li>
+									<div class="block">
+										<div class="tags">
+											<a href="" class="tag">
+												<span>Entertainment</span>
+											</a>
+										</div>
+										<div class="block_content">
+											<h2 class="title">
+												<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+											</h2>
+											<div class="byline">
+												<span>13 hours ago</span> by <a>Jane Smith</a>
+											</div>
+											<p class="excerpt">Film festivals used to be do-or-die moments for movie
+												makers. They were where you met the producers that could fund your
+												project, and if the buyers liked your flick, they’d pay to Fast-forward
+												and… <a>Read&nbsp;More</a>
+											</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="block">
+										<div class="tags">
+											<a href="" class="tag">
+												<span>Entertainment</span>
+											</a>
+										</div>
+										<div class="block_content">
+											<h2 class="title">
+												<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+											</h2>
+											<div class="byline">
+												<span>13 hours ago</span> by <a>Jane Smith</a>
+											</div>
+											<p class="excerpt">Film festivals used to be do-or-die moments for movie
+												makers. They were where you met the producers that could fund your
+												project, and if the buyers liked your flick, they’d pay to Fast-forward
+												and… <a>Read&nbsp;More</a>
+											</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="block">
+										<div class="tags">
+											<a href="" class="tag">
+												<span>Entertainment</span>
+											</a>
+										</div>
+										<div class="block_content">
+											<h2 class="title">
+												<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+											</h2>
+											<div class="byline">
+												<span>13 hours ago</span> by <a>Jane Smith</a>
+											</div>
+											<p class="excerpt">Film festivals used to be do-or-die moments for movie
+												makers. They were where you met the producers that could fund your
+												project, and if the buyers liked your flick, they’d pay to Fast-forward
+												and… <a>Read&nbsp;More</a>
+											</p>
+										</div>
+									</div>
+								</li>
+							</ul>
 
+						</div>
+				<!-- end history harga -->
+			</div>
+			<div class="modal-footer">
+
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-perbarui-harga" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Perbarui Harga</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+				  <label for="">Harga Baru</label>
+				  <input type="text" name="" id="harga_sekarang" class="form-control" placeholder="" aria-describedby="helpId">
+				  <small id="helpId" class="text-error eharga-sekarang" ></small>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" onclick="prosesPerbaruiHarga()">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script>
-    $('.edit-harga').on('click', function(e) {
+	$('.edit-harga').on('click', function (e) {
 
-        e.preventDefault();
+		e.preventDefault();
 
-        $('#edit-harga').modal();
-        let id = $(this).data('id')
-        $.ajax({
-            type: "POST",
-            url: "<?=base_url('c_admin/getDataHarga')?>",
-            data: {
-                id: id
-            },
-            dataType: "JSON",
-            success: function(response) {
-                console.log(response);
-                $('#id').attr('hidden', true);
-                $('input[name=id]').val(response.id_harga);
+		$('#edit-harga').modal();
+		let id = $(this).data('id')
+		$.ajax({
+			type: "POST",
+			url: "<?=base_url('c_admin/getDataHarga')?>",
+			data: {
+				id: id
+			},
+			dataType: "JSON",
+			success: function (response) {
+				console.log(response);
+				$('#id').attr('hidden', true);
+				$('input[name=id]').val(response.id_harga);
 				$('#nama_barang').val(response.nama_barang);
-                $('#harga').val(response.harga);
-                $('#satuan').val(response.satuan);
-                $('#edit-harga').modal('show');
-            }
-        });
+				$('#harga').val(response.harga);
+				$('#satuan').val(response.satuan);
+				$('#edit-harga').modal('show');
+			}
+		});
 
-    })
-</script>
+	})
 
-<script>
 	function deleteHarga(id) {
 		$("#id").val(id);
 		$("#konfirmasi").modal("show");
 	}
 
+	function showModalHistory(id) {
+		$.ajax({
+			type: "POST",
+			url: "<?=base_url('C_admin/getHistoryHarga')?>",
+			data: {id_barang:id},
+			dataType: "JSON",
+			success: function (response) {
+				let html="";
+				if (response.status=='success') {
+					$.each(response.data, function (indexInArray, valueOfElement) {
+						html+=`<li>
+									<div class="block">
+										<div class="tags">
+											<a href="" class="tag">
+												<span>${valueOfElement.created_at}</span>
+											</a>
+										</div>
+										<div class="block_content">
+											<h2 class="title">
+												<a>Rp. ${valueOfElement.harga_terakhir}</a>
+											</h2>
+											<div class="byline">
+
+
+										</div>
+									</div>
+								</li>`;
+					});
+				}
+				$(".history-harga").html(html);
+				$("#modal-history-harga").modal("show");
+			},error:function(){
+				swal({
+					title: "Gagal",
+					text: "Gagal mengambil data",
+					icon: "error",
+					button: "Ok",
+				});
+			}
+		});
+	}
+	function perbaruiHarga(id) {
+		localStorage.setItem('id', id);
+		$("#modal-perbarui-harga").modal("show");
+	}
+	function prosesPerbaruiHarga() {
+		$.ajax({
+			type: "POST",
+			url: "<?=base_url('C_admin/updateHargaBarang')?>",
+			data: {
+				id_barang: localStorage.getItem('id'),
+				harga: $('#harga_sekarang').val()
+			},
+			dataType: "JSON",
+			success: function (response) {
+				if (response.status=='validation_failed') {
+					$(".eharga-sekarang").text(response.errors.harga);
+				} else{
+					$("#modal-perbarui-harga").modal("hide");
+					swal({
+						title: "Berhasil!",
+						text: "Harga barang berhasil diperbarui",
+						icon: "success",
+						button: "OK",
+					}).then(function() {
+						location.reload();
+					});
+				}
+
+			},error:function(){
+				swal({
+					title: "Gagal!",
+					text: "Data Gagal Diperbarui",
+					icon: "error",
+					button: "Ok",
+				});
+			}
+		});
+	 }
 </script>
