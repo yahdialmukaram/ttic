@@ -51,7 +51,6 @@ class Model extends CI_Model {
 		$this->db->join('tb_barang', 'tb_barang.id_barang = tb_harga.id_barang', 'left');
 		return $this->db->get()->result_array();
 	}
-
 	// public function addHargaTerakhir($table, $data)
 	// {
 	// 	$this->db->insert($table, $data);

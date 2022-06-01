@@ -138,6 +138,7 @@ class C_admin extends CI_Controller {
 		// $data['dataBarang'] = $this->model->getBarang();
 		// $data ['dataHarga'] =$this->model->getHarga();
 		$data ['hargaHistori'] =$this->model->getHargaHistori();
+		
 		$this->load->view('admin/header', $title);
 		$this->load->view('admin/v_data_kelola_harga', $data);
 		$this->load->view('admin/footer');
