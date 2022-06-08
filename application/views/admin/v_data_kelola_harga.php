@@ -1,8 +1,8 @@
-
 <style>
-	.text-error{
+	.text-error {
 		color: red;
 	}
+
 </style>
 <div class="right_col" role="main">
 	<div class="">
@@ -71,37 +71,38 @@
 							<thead>
 								<tr>
 									<th style="width: 1%;">No</th>
-									<th>tanggal input</th>
+									<th>tanggal input barang</th>
 									<th>nama barang</th>
 									<th style="width: 8%">satuan</th>
 									<th>harga sekarang</th>
 									<th>perubahan harga</th>
-									<th>keterangan</th>
 									<th>Opsi</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php $no = 1;
-foreach ($hargaHistori as $key => $value): ?>
+								foreach ($hargaHistori as $key => $value): ?>
 								<tr>
 									<td><?=$no++?></td>
 									<td><?=$value['tgl_input'];?></td>
 									<td><?=$value['nama_barang'];?></td>
 									<td><?=$value['satuan'];?></td>
 									<td><?="Rp. " . number_format($value['harga']);?></td>
-									<td></td>
 									<td>
 										<button onclick="showModalHistory(<?=$value['id_barang']?>)" type="button"
-											class="btn btn-info btn-xs"><i class="fa fa-info"></i>History Harga</button>
+											class="btn btn-info btn-xs"><i class="fa fa-info"></i> History
+											Harga</button>
 									</td>
 									<td>
-										<a href="<?=base_url();?>" class="btn btn-success btn-xs"><i
+										<!-- <a href="<?=base_url();?>" class="btn btn-success btn-xs"><i
 												class="fa fa-edit edit-harga"
-												data-id="<?=$value['id_harga']?>">edit</i></a>
+												data-id="<?=$value['id_harga']?>">ditails harga</i></a> -->
+												<button onclick="perbaruiHarga(<?=$value['id_barang']?>)" type="button"
+													class="btn btn-success btn-xs"><i class="fa fa-money"></i> Perbarui
+													Harga</button> 
 										<a href="#" onclick="deleteHarga(<?=$value['id_harga']?>);"
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash">
 												Delete</i> </a>
-												<button onclick="perbaruiHarga(<?=$value['id_barang']?>)" type="button" class="btn btn-success btn-xs"><i class="fa fa-money"></i> Perbarui Harga</button>
 									</td>
 								</tr>
 								<?php endforeach;?>
@@ -227,7 +228,7 @@ foreach ($hargaHistori as $key => $value): ?>
 	<div class="modal-dialog modal-sm" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 style="text-align: center;" class="modal-title"> <i class="fa fa-refresh"> Update Harga Lama</i>
+				<h5 style="text-align: center;" class="modal-title"> <i class="fa fa-refresh"> Ditails Harga</i>
 				</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -248,7 +249,7 @@ foreach ($hargaHistori as $key => $value): ?>
 							aria-describedby="helpId">
 					</div>
 					<div class="form-group">
-						<label for="">harga sebelumnya</label>
+						<label for="">harga sekarang</label>
 						<input type="number" name="harga" id="harga" class="form-control" placeholder=""
 							aria-describedby="helpId">
 					</div>
@@ -283,106 +284,108 @@ foreach ($hargaHistori as $key => $value): ?>
 			<div class="modal-body">
 				<!-- history harga -->
 				<div class="x_content">
-							<ul class="list-unstyled timeline history-harga">
-								<li>
-									<div class="block">
-										<div class="tags">
-											<a href="" class="tag">
-												<span>Entertainment</span>
-											</a>
-										</div>
-										<div class="block_content">
-											<h2 class="title">
-												<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-											</h2>
-											<div class="byline">
-												<span>13 hours ago</span> by <a>Jane Smith</a>
-											</div>
-											<p class="excerpt">Film festivals used to be do-or-die moments for movie
-												makers. They were where you met the producers that could fund your
-												project, and if the buyers liked your flick, they’d pay to Fast-forward
-												and… <a>Read&nbsp;More</a>
-											</p>
-										</div>
+					<ul class="list-unstyled timeline history-harga">
+						<li>
+							<div class="block">
+								<div class="tags">
+									<a href="" class="tag">
+										<span>Entertainment</span>
+									</a>
+								</div>
+								<!-- <div class="block_content">
+									<h2 class="title">
+										<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+									</h2>
+									<div class="byline">
+										<span>13 hours ago</span> by <a>Jane Smith</a>
 									</div>
-								</li>
-								<li>
-									<div class="block">
-										<div class="tags">
-											<a href="" class="tag">
-												<span>Entertainment</span>
-											</a>
-										</div>
-										<div class="block_content">
-											<h2 class="title">
-												<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-											</h2>
-											<div class="byline">
-												<span>13 hours ago</span> by <a>Jane Smith</a>
-											</div>
-											<p class="excerpt">Film festivals used to be do-or-die moments for movie
-												makers. They were where you met the producers that could fund your
-												project, and if the buyers liked your flick, they’d pay to Fast-forward
-												and… <a>Read&nbsp;More</a>
-											</p>
-										</div>
+									<p class="excerpt">Film festivals used to be do-or-die moments for movie
+										makers. They were where you met the producers that could fund your
+										project, and if the buyers liked your flick, they’d pay to Fast-forward
+										and… <a>Read&nbsp;More</a>
+									</p>
+								</div> -->
+							</div>
+						</li>
+						<li>
+							<!-- <div class="block">
+								<div class="tags">
+									<a href="" class="tag">
+										<span>Entertainment</span>
+									</a>
+								</div>
+								<div class="block_content">
+									<h2 class="title">
+										<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+									</h2>
+									<div class="byline">
+										<span>13 hours ago</span> by <a>Jane Smith</a>
 									</div>
-								</li>
-								<li>
-									<div class="block">
-										<div class="tags">
-											<a href="" class="tag">
-												<span>Entertainment</span>
-											</a>
-										</div>
-										<div class="block_content">
-											<h2 class="title">
-												<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-											</h2>
-											<div class="byline">
-												<span>13 hours ago</span> by <a>Jane Smith</a>
-											</div>
-											<p class="excerpt">Film festivals used to be do-or-die moments for movie
-												makers. They were where you met the producers that could fund your
-												project, and if the buyers liked your flick, they’d pay to Fast-forward
-												and… <a>Read&nbsp;More</a>
-											</p>
-										</div>
+									<p class="excerpt">Film festivals used to be do-or-die moments for movie
+										makers. They were where you met the producers that could fund your
+										project, and if the buyers liked your flick, they’d pay to Fast-forward
+										and… <a>Read&nbsp;More</a>
+									</p>
+								</div>
+							</div> -->
+						</li>
+						<li>
+							<!-- <div class="block">
+								<div class="tags">
+									<a href="" class="tag">
+										<span>Entertainment</span>
+									</a>
+								</div>
+								<div class="block_content">
+									<h2 class="title">
+										<a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+									</h2>
+									<div class="byline">
+										<span>13 hours ago</span> by <a>Jane Smith</a>
 									</div>
-								</li>
-							</ul>
+									<p class="excerpt">Film festivals used to be do-or-die moments for movie
+										makers. They were where you met the producers that could fund your
+										project, and if the buyers liked your flick, they’d pay to Fast-forward
+										and… <a>Read&nbsp;More</a>
+									</p>
+								</div>
+							</div> -->
+						</li>
+					</ul>
 
-						</div>
+				</div>
 				<!-- end history harga -->
 			</div>
 			<div class="modal-footer">
 
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modal-perbarui-harga" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="modal-perbarui-harga" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title">Perbarui Harga</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-				  <label for="">Harga Baru</label>
-				  <input type="text" name="" id="harga_sekarang" class="form-control" placeholder="" aria-describedby="helpId">
-				  <small id="helpId" class="text-error eharga-sekarang" ></small>
+					<label for="">Harga Baru</label>
+					<input type="text" name="" id="harga_sekarang" class="form-control" placeholder=""
+						aria-describedby="helpId">
+					<small id="helpId" class="text-error eharga-sekarang"></small>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" onclick="prosesPerbaruiHarga()">Save</button>
+				<button type="button" class="btn btn-primary" onclick="prosesPerbaruiHarga()">Update Harga Terbaru</button>
 			</div>
 		</div>
 	</div>
@@ -424,13 +427,15 @@ foreach ($hargaHistori as $key => $value): ?>
 		$.ajax({
 			type: "POST",
 			url: "<?=base_url('C_admin/getHistoryHarga')?>",
-			data: {id_barang:id},
+			data: {
+				id_barang: id
+			},
 			dataType: "JSON",
 			success: function (response) {
-				let html="";
-				if (response.status=='success') {
+				let html = "";
+				if (response.status == 'success') {
 					$.each(response.data, function (indexInArray, valueOfElement) {
-						html+=`<li>
+						html += `<li>
 									<div class="block">
 										<div class="tags">
 											<a href="" class="tag">
@@ -451,7 +456,8 @@ foreach ($hargaHistori as $key => $value): ?>
 				}
 				$(".history-harga").html(html);
 				$("#modal-history-harga").modal("show");
-			},error:function(){
+			},
+			error: function () {
 				swal({
 					title: "Gagal",
 					text: "Gagal mengambil data",
@@ -461,10 +467,12 @@ foreach ($hargaHistori as $key => $value): ?>
 			}
 		});
 	}
+
 	function perbaruiHarga(id) {
 		localStorage.setItem('id', id);
 		$("#modal-perbarui-harga").modal("show");
 	}
+
 	function prosesPerbaruiHarga() {
 		$.ajax({
 			type: "POST",
@@ -475,21 +483,22 @@ foreach ($hargaHistori as $key => $value): ?>
 			},
 			dataType: "JSON",
 			success: function (response) {
-				if (response.status=='validation_failed') {
-					$(".eharga-sekarang").text(response.errors.harga);
-				} else{
+				if (response.status == 'validation_failed') {
+					$(".eharga-sekarang").text(response.errors.harga); //unutk tex error
+				} else {
 					$("#modal-perbarui-harga").modal("hide");
 					swal({
 						title: "Berhasil!",
 						text: "Harga barang berhasil diperbarui",
 						icon: "success",
 						button: "OK",
-					}).then(function() {
-						location.reload();
+					}).then(function () {
+						location.reload(); //untuk perbarui data di table
 					});
 				}
 
-			},error:function(){
+			},
+			error: function () {
 				swal({
 					title: "Gagal!",
 					text: "Data Gagal Diperbarui",
@@ -498,5 +507,6 @@ foreach ($hargaHistori as $key => $value): ?>
 				});
 			}
 		});
-	 }
+	}
+
 </script>

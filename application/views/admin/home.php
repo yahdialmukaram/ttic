@@ -1,4 +1,5 @@
-   
+
+<!-- <div class="right_col" role="main"> -->
    <!-- page content -->
         <div class="right_col" role="main">
 
@@ -46,53 +47,42 @@
    </body>
    <!-- end jam -->
 
-          <div class="row top_tiles">
+          <!-- page content -->
+          <div class="">
+            <!-- <div class="row top_tiles">
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-book"></i></div>
-                  <div class="count"><?=$data_paslon?></div>
-                  <h3>Data Kandidat</h3>
-                
-                </div>
-              </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-book"></i></div>
-                  <div class="count"><?=$data_masyarakat?></div>
-                  <h3>Data Masyarakat</h3>
+                  <div class="icon"><i class="fa fa-user"></i></div>
+                  <div class="count"><?=$dataBarang?></div>
+                  <h3>Data Pengguna</h3>
+               
                 </div>
               </div>
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-check-square-o"></i></div>
-                  <div class="count"><?=$dpt_memilih?></div>
-                  <h3>DPT Telah Memilih</h3>
-                  
-                  
+                  <div class="icon"><i class="fa fa-book"></i></div>
+                  <div class="count"><?=$dataBarang?></div>
+                  <h3>Data Siswa</h3>
+               
                 </div>
               </div>
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-                  <div class="count"><?=$dpt_belum_memilih?></div>
-                  <h3>DPT Belum Memilih</h3>                
+                  <div class="icon"><i class="fa fa-male"></i></div>
+                  <div class="count"><?=$dataBarang?></div>
+                  <h3>Data Laki-Laki</h3>
+               
                 </div>
               </div>
-              <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 col-xs-12">
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
-                  <div class="icon"><i class="glyphicon glyphicon-user"></i></div>
-                  <div class="count"><?=$data_laki?></div>
-                  <h3>Laki Laki</h3>                
+                  <div class="icon"><i class="fa fa-male"></i></div>
+                  <div class="count"><?= $dataBarang?></div>
+                  <h3>Data Perempuan</h3>
+               
                 </div>
               </div>
-              <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                  <div class="icon"><i class="glyphicon glyphicon-user"></i></div>
-                  <div class="count"><?=$data_perempuan?></div>
-                  <h3>Perempuan</h3>                
-                </div>
-              </div>
-            </div>
+            </div> -->
        
           <br />
 
@@ -120,7 +110,7 @@
                   </div>
                   <div class="x_content">
 									
-                <canvas id="myChart" width="110%" height="50%" ></canvas>
+                <canvas id="myChart" width="120%" height="50%" ></canvas>
                   </div>
                 </div>
               </div>

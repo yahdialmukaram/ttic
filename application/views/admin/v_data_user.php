@@ -193,8 +193,8 @@
 					</button>
             </div>
             <div class="modal-body">
-                <form action="<?=base_url();?>controller/update_password_u" method="post" enctype="multipart/form-data">
-                    <input type="text" name="id" id="id_u">
+                <form action="<?=base_url();?>c_admin/updatePassword" method="post" enctype="multipart/form-data">
+                    <input type="text" hidden  name="id" id="id_u">
 
                     <div class="form-group">
                         <label for="">Username</label>
@@ -204,11 +204,11 @@
                         <label for="">Email</label>
                         <input type="text" name="email" id="email_u" class="form-control" placeholder="" aria-describedby="helpId">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="">Nama</label>
                         <input type="text" name="nama" id="nama_u" class="form-control" placeholder="" aria-describedby="helpId">
                     </div>
-
+ -->
                     <div class="form-group">
                         <label for="">Edit Password</label>
                         <input type="password" name="password" id="password_u" class="form-control" placeholder="*******" aria-describedby="helpId">
@@ -217,7 +217,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button> 
-                <button type="submit" class="btn btn-primary btn-sm fa fa-save"> Save</button>
+                <button type="submit" class="btn btn-primary btn-sm fa fa-save"> Update</button>
             </div>
             </form>
         </div>
@@ -225,7 +225,7 @@
 </div>
 
 
-<!-- <script>
+<script>
     $('.edit-password').on('click', function(e) {
 
         e.preventDefault();
@@ -234,7 +234,7 @@
         let id = $(this).data('id')
         $.ajax({
             type: "POST",
-            url: "<?=base_url('controller/get_data_password')?>",
+            url: "<?=base_url('c_admin/getDataPassword')?>",
             data: {
                 id: id
             },
@@ -250,7 +250,7 @@
         });
 
     })
-</script> -->
+</script>
 
 <script>
 function deleteUser(id){

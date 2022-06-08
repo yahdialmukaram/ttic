@@ -119,7 +119,7 @@
 	$(document).ready(function () {
 		$.ajax({
 			type: "POST",
-			url: "<?=base_url()?>controller/diagram",
+			url: "<?=base_url()?>c_admin/diagram",
 			data: "data",
 			dataType: "JSON",
 			success: function (response) {
@@ -132,7 +132,7 @@ function diagram(data) {
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['DPT Telah Memilih', 'DPT Belum Memilih','Data Laki Laki','Data Perempuan'],
+        labels: ['Data Barang', 'Data Harga Barang','Data Pengguna Account'],
         datasets: [{
             label: '# of Votes',
             data: data,

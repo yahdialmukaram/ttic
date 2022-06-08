@@ -93,6 +93,13 @@ class C_admin extends CI_Controller
         $this->load->view('admin/v_harga', $data);
         $this->load->view('admin/footer');
     }
+	public function filter($id)
+	{
+		$data['dataHarga'] = $this->model->getHargaPertanggal($id);
+		// $data ['dataHarga'] = $this->db->get_where('tb_harga',['id_harga'=>$id])->result_array();
+		$this->load->view('admin/v_harga', $data);
+		
+	}
     public function addHarga()
     {
         $insert = [
@@ -164,7 +171,7 @@ class C_admin extends CI_Controller
 
     }
     // use for update new price
-    public function updateHargaBarang(Type $var = null)
+    public function updateHargaBarang()
     {
         $id_barang = $this->input->post('id_barang');
         $harga = $this->input->post('harga');
@@ -194,7 +201,7 @@ class C_admin extends CI_Controller
         }
         echo json_encode($respon);
     }
-    public function getHistoryHarga(Type $var = null)
+    public function getHistoryHarga()
     {
         $id_barang = $this->input->post('id_barang');
         $histori = $this->model->getHistoryHarga($id_barang);
@@ -204,6 +211,41 @@ class C_admin extends CI_Controller
         ];
         echo json_encode($respon);
     }
+
+	public function diagram()
+	{
+        $data ['dataBarang'] = $this->model->findDataBarang();
+        $data ['dataHarga'] = $this->model->findDataHargaBarang();
+        $data ['dataUser'] = $this->model->findDataUser();
+	    // $data['laki_laki'] = $this->model->find_data('table_siswa','jenis_kalamin','laki Laki');
+        // $data['perempuan'] = $this->model->find_data('table_siswa','jenis_kelamin','perempuan');
+		// $response=[$data['dataBarang'],$data['dataHarga'],$data['laki_laki'], $data['perempuan']];
+		$response=[$data['dataBarang'],$data['dataHarga'],$data['dataUser']];
+		echo json_encode($response);
+	}
+
+	public function getDataPassword()
+	{
+		$id = $this->input->post('id');
+		$data = $this->model->findData('tb_user','id_user',$id);
+		echo json_encode($data);
+		
+	}
+
+	public function updatePassword()
+	{
+		$id = $this->input->post('id');
+		$data = [
+			'username' => $this->input->post('username'),
+			'email' => $this->input->post('email'),
+			'password'=> md5($this->input->post('password')),
+		];
+		$this->model->updatePassword($id,$data);
+		$this->session->set_flashdata('success', 'password berhasil di ubah');
+		return redirect('c_admin/v_data_user');
+		
+	}
+
 
 }
 

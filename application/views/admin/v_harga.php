@@ -41,8 +41,8 @@
 							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 							</li>
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-										class="fa fa-wrench"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-expanded="false"><i class="fa fa-wrench"></i></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="#">Settings 1</a>
 									</li>
@@ -55,9 +55,32 @@
 						</ul>
 						<div class="clearfix"></div>
 					</div>
-					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#exampleModal">
+					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal"
+						data-target="#exampleModal">
 						Kelola Harga Barang
 					</button>
+
+					<a href="<?=base_url();?>c_cetak/printDataHargaBarang" class="btn btn-success fa fa-print"
+						target="_blank"> Cetak Data Harga Barang</a>
+
+					<form action="<?=base_url()?>c_cetak/cetakPertanggal" method="POST">
+						<input type="month" name="bulan" class="">
+						<button type="submit" class="btn btn-success">cetak pertanggal</button>
+					</form>
+
+					<!-- <form action="" id="format_laporan">
+						<select name="" id="angkatan">
+							<option value="0"> show all</option>
+							<?php foreach($dataHarga as $row):?>
+								<option value="<?= $row['id_harga']?>"><?= $row['tgl_input']?></option>
+								<?php endforeach ?>
+						</select>
+						<button type="submit" class="btn btn-danger">show data</button>
+					</form>
+					<div class="col-md-12">
+						<div id="result"></div>
+					</div> -->
+
 					<div class="x_content">
 
 						<table id="datatable" class="table table-striped table-bordered">
@@ -66,7 +89,7 @@
 									<th style="width: 1%;">No</th>
 									<th>tanggal input</th>
 									<th>nama barang</th>
-									<th style="width: 8%">satuan</th>
+									<th style="width: 4%">satuan</th>
 									<th>harga</th>
 									<th>Opsi</th>
 								</tr>
@@ -78,9 +101,10 @@
 									<td><?=$no++?></td>
 									<td><?=$value['tgl_input'];?></td>
 									<td><?=$value['nama_barang'];?></td>
-									<td><?=$value['satuan'];?></td>
+									<td style="text-align: center;"><?=$value['satuan'];?></td>
 									<td><?="Rp. ".number_format($value['harga']);?></td>
-									<td><a href="#" onclick="deleteHarga(<?=$value['id_harga']?>);" class="btn btn-danger btn-xs"> <i class="fa fa-trash">
+									<td><a href="#" onclick="deleteHarga(<?=$value['id_harga']?>);"
+											class="btn btn-danger btn-xs"> <i class="fa fa-trash">
 												Delete</i> </a></td>
 								</tr>
 								<?php endforeach; ?>
@@ -121,9 +145,9 @@
 
 					<div class="form-group">
 						<label class="control-label col-md-12 col-sm-3 col-xs-12">satuan
-							</label>
-							<div class="col-md-12 col-sm-12 col-xs-12">
-						<select name="satuan" id="" class="form-control">
+						</label>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<select name="satuan" id="" class="form-control">
 								<option value="">--pilih satuan barang--</option>
 								<?php foreach ($dataBarang as $key => $value) :?>
 								<option value="<?=$value['id_barang']?>"><?=$value['satuan']?></option>
@@ -135,37 +159,13 @@
 					<div class="form-group">
 						<label class="control-label col-md-12 col-sm-3 col-xs-12">harga </label>
 						<div class="col-md-12 col-sm-12 col-xs-12">
-							<input type="number" name="harga" class="form-control" required placeholder="masukan harga barang ">
+							<input type="number" name="harga" class="form-control" required
+								placeholder="masukan harga barang ">
 							<small>
 								<font color="red">harga barang wajib isi</font>
 							</small>
 						</div>
 					</div>
-
-					<!-- <div class="form-group">
-            <label class="control-label col-md-12 col-sm-3 col-xs-12">harga sekarang </label>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="number" name="harga_sekarang" class="form-control"required placeholder="masukan harga barang sekarang" >
-              <small>  <font color="red">harga barang sekarang wajib isi</font></small>    
-            </div>
-          </div> -->
-
-					<!-- <div class="form-group">
-            <label class="control-label col-md-12 col-sm-3 col-xs-12">perubahan </label>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="number" name="perubahan" class="form-control"required>
-              <small>  <font color="red">perubahan sekarang wajib isi</font></small>    
-            </div>
-          </div> -->
-
-					<!-- <div class="form-group">
-            <label class="control-label col-md-12 col-sm-3 col-xs-12">keterangan </label>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="text" name="keterangan" class="form-control"required placeholder="masukan keterangan" >
-              <small>  <font color="red">perubahan sekarang wajib isi</font></small>    
-            </div>
-          </div> -->
-
 
 
 			</div>
@@ -200,78 +200,6 @@
 	</div>
 </div>
 
-<!-- Modal edit passsowd -->
-<div class="modal fade" id="edit-password" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-	aria-hidden="true">
-	<div class="modal-dialog modal-sm" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 style="text-align: center;" class="modal-title">Edit Password</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="<?=base_url();?>controller/update_password_u" method="post" enctype="multipart/form-data">
-					<input type="text" name="id" id="id_u">
-
-					<div class="form-group">
-						<label for="">Username</label>
-						<input type="text" name="username" id="username_u" class="form-control" placeholder=""
-							aria-describedby="helpId">
-					</div>
-					<div class="form-group">
-						<label for="">Email</label>
-						<input type="text" name="email" id="email_u" class="form-control" placeholder="" aria-describedby="helpId">
-					</div>
-					<div class="form-group">
-						<label for="">Nama</label>
-						<input type="text" name="nama" id="nama_u" class="form-control" placeholder="" aria-describedby="helpId">
-					</div>
-
-					<div class="form-group">
-						<label for="">Edit Password</label>
-						<input type="password" name="password" id="password_u" class="form-control" placeholder="*******"
-							aria-describedby="helpId">
-					</div>
-
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary btn-sm fa fa-save"> Save</button>
-			</div>
-			</form>
-		</div>
-	</div>
-</div>
-
-
-<!-- <script>
-    $('.edit-password').on('click', function(e) {
-
-        e.preventDefault();
-
-        $('#edit-password').modal();
-        let id = $(this).data('id')
-        $.ajax({
-            type: "POST",
-            url: "<?=base_url('controller/get_data_password')?>",
-            data: {
-                id: id
-            },
-            dataType: "JSON",
-            success: function(response) {
-                console.log(response);
-                $('#id').attr('hidden', true);
-                $('input[name=id]').val(response.id_user);
-                $('#username_u').val(response.username);
-                $('#email_u').val(response.email);
-                $('#edit-password').modal('show');
-            }
-        });
-
-    })
-</script> -->
 
 <script>
 	function deleteHarga(id) {
@@ -280,3 +208,16 @@
 	}
 
 </script>
+
+<!-- <script>
+	$(document).ready(function(){
+		$('#format_laporan').submit(function(e){
+			e.preventDefault();
+			var id = $('#angkatan').val();
+			// console.log(id);
+			var url = '<?= base_url('c_cetak/filter/')?>' + id;
+			$('#datatable').load(url);
+		})
+	})
+
+</script> -->

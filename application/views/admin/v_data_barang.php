@@ -65,13 +65,15 @@
                         <tr>
                           <th style="width: 1%;">No</th>
                           <th>nama barang</th>
-                          <th>satuan</th>
+                          <!-- <th>satuan</th> -->
+													<th style="width: 4%">satuan</th>
                           <!-- <th>harga sebelumnya</th>
                           <th>harga sekarang</th>
                           <th>perubahan</th>
                           <th>keterangan</th> -->
                           <!-- <th>tanggal input</th> -->
-                          <th>Opsi</th>
+                          <!-- <th>Opsi</th> -->
+													<th style="width: 10%">opsi</th>
                           </th>
                          
                         </tr>
