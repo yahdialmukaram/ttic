@@ -160,7 +160,6 @@ class Model extends CI_Model
 		// $this->db->query('select * from tb_harga where SUBSTRING(FROM_UNIXTIME(tgl_awal),1,4) ='.$tgl_awal.' order by id desc');
 		// $this->db->where('tgl_input >=', $this->input->post('tgl_awal'));
 		$this->db->where('id_harga', $id);
-		
 		$this->db->join('tb_barang', 'tb_barang.id_barang = tb_harga.id_barang', 'left');
 		return $this->db->get()->result_array();
 	}
