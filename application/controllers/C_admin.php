@@ -15,7 +15,7 @@ class C_admin extends CI_Controller
 		// this->session->userdata('level') !== 'admin' or
             $this->session->userdata('logged_in') !== true
         ) {
-            $this->session->set_flashdata('error', 'Anda tidak punya akses untuk menu admin');
+            $this->session->set_flashdata('error', 'Anda tidak punya akses untuk menu ini silahkan login');
             redirect('c_login');
         }
 	
@@ -104,8 +104,15 @@ class C_admin extends CI_Controller
 	}
     public function addHarga()
     {
-        $insert = [
-            'tgl_input' => date('d-m-Y, H:i:s'),
+		$id_barang = $this->input->post('id_barang');
+		$checkBarang = $this->model->checkBarang($id_barang);
+		if ($checkBarang > 0 ) {
+			$this->session->set_flashdata('error', 'harga barang ini sudah anda input');
+			return redirect('c_admin/v_harga');
+		}
+		
+		$insert = [
+			'tgl_input' => date('d-m-Y, H:i:s'),
             'id_barang' => $this->input->post('id_barang'),
             'id_barang' => $this->input->post('id_barang'),
             'harga' => $this->input->post('harga'),
@@ -113,6 +120,7 @@ class C_admin extends CI_Controller
         $this->model->addHarga('tb_harga', $insert);
         $this->session->set_flashdata('success', 'data harga telah ditambahkan');
         return redirect('c_admin/v_harga');
+	
         // var_dump($insert);
     }
 
@@ -130,21 +138,40 @@ class C_admin extends CI_Controller
     //     return redirect('c_admin/v_data_kelola_harga');
 
     // }
+	public function deleteBarang()
+	{
+		$id =$this->input->post('id');
+		$this->model->deleteBarang($id);
+		$this->model->deleteHarga($id);
+		$this->model->deleteKelolaHarga($id);
+		$this->session->set_flashdata('success', 'data berhasil di hapus');
+		return redirect('c_admin/v_data_barang');		
+	}
 
     public function deleteHarga()
     {
         $id = $this->input->post('id');
         $this->model->deleteHarga($id);
+		$this->model->deleteKelolaHarga($id);
         $this->session->set_flashdata('success', 'data harga berhasil di hapus');
         return redirect('c_admin/v_harga');
     }
+   
+	public function deleteKelolaHarga()
+    {
+        $id = $this->input->post('id');
+        $this->model->deleteKelolaHarga($id);
+        $this->session->set_flashdata('success', 'data harga berhasil di hapus');
+        return redirect('c_admin/v_data_kelola_harga');
+    }
+
 
     public function v_data_kelola_harga()
     {
         $title['title'] = 'data kelola harga barang';
         // $data['dataBarang'] = $this->model->getBarang();
-        // $data ['dataHarga'] =$this->model->getHarga();
-        $data['hargaHistori'] = $this->model->getHargaHistori();
+        $data ['dataHarga'] =$this->model->getHarga();
+        // $data['hargaHistori'] = $this->model->getHargaHistori();
 
         $this->load->view('admin/header', $title);
         $this->load->view('admin/v_data_kelola_harga', $data);

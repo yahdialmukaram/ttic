@@ -56,7 +56,7 @@
                   </div>
                   <button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal"
                     data-target="#exampleModal">
-                    Tambah Admin Sistem
+                    Tambah Pengguna Sistem
                   </button>
                   <div class="x_content">
                 

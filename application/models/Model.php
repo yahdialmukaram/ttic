@@ -57,10 +57,32 @@ class Model extends CI_Model
 
     public function deleteHarga($id)
     {
-        $this->db->where('id_harga', $id);
+		$this->db->where('id_harga', $id);
         $this->db->delete('tb_harga');
-
     }
+	
+	public function deleteBarang($id)
+	{
+		$this->db->where('id_barang', $id);
+		$this->db->delete('tb_barang');		
+	}
+	
+	public function deleteKelolaHarga($id)
+	{
+		$this->db->where('id_histori', $id);
+		$this->db->delete('tb_histori');
+	}
+
+	public function checkBarang($id)
+	{
+		$this->db->select('id_barang');
+		$this->db->from('tb_harga');
+		$this->db->where('id_barang', $id);
+		return $this->db->get()->num_rows();
+		
+		
+		
+	}
 
 	public function updatePassword($id,$data)
 	{

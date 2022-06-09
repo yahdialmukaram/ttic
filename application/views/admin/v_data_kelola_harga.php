@@ -61,10 +61,7 @@
 						</ul>
 						<div class="clearfix"></div>
 					</div>
-					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal"
-						data-target="#exampleModal">
-						Kelola Harga Barang
-					</button>
+
 					<div class="x_content">
 
 						<table id="datatable" class="table table-striped table-bordered">
@@ -81,7 +78,7 @@
 							</thead>
 							<tbody>
 								<?php $no = 1;
-								foreach ($hargaHistori as $key => $value): ?>
+								foreach ($dataHarga as $key => $value): ?>
 								<tr>
 									<td><?=$no++?></td>
 									<td><?=$value['tgl_input'];?></td>
@@ -97,12 +94,12 @@
 										<!-- <a href="<?=base_url();?>" class="btn btn-success btn-xs"><i
 												class="fa fa-edit edit-harga"
 												data-id="<?=$value['id_harga']?>">ditails harga</i></a> -->
-												<button onclick="perbaruiHarga(<?=$value['id_barang']?>)" type="button"
-													class="btn btn-success btn-xs"><i class="fa fa-money"></i> Perbarui
-													Harga</button> 
-										<a href="#" onclick="deleteHarga(<?=$value['id_harga']?>);"
+										<button onclick="perbaruiHarga(<?=$value['id_barang']?>)" type="button"
+											class="btn btn-success btn-xs"><i class="fa fa-money"></i> Perbarui
+											Harga</button>
+										<!-- <a href="#" onclick="deleteKelolaHarga(<?=$value['id_histori']?>);"
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash">
-												Delete</i> </a>
+												Delete</i> </a> -->
 									</td>
 								</tr>
 								<?php endforeach;?>
@@ -118,95 +115,12 @@
 </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Kelola Harga Barang</h5>
-			</div>
-			<div class="modal-body">
-
-				<form action="<?=base_url();?>c_admin/addHargaTerakhir" method="POST" enctype="multipart/form-data">
-
-					<div class="form-group">
-						<label class="control-label col-md-12 col-sm-3 col-xs-12">nama barang</label>
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<select name="id_barang" id="" class="form-control">
-								<option value="">--pilih nama barang--</option>
-								<?php foreach ($dataBarang as $key => $value): ?>
-								<option value="<?=$value['id_barang']?>"><?=$value['nama_barang']?></option>
-								<?php endforeach;?>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label col-md-12 col-sm-3 col-xs-12">satuan
-						</label>
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<select name="satuan" id="" class="form-control">
-								<option value="">--pilih satuan barang--</option>
-								<?php foreach ($dataBarang as $key => $value): ?>
-								<option value="<?=$value['id_barang']?>"><?=$value['satuan']?></option>
-								<?php endforeach;?>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label col-md-12 col-sm-3 col-xs-12">harga terkahir </label>
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<input type="number" name="harga_terakhir" class="form-control" required
-								placeholder="masukan harga barang ">
-							<small>
-								<font color="red">harga barang wajib isi</font>
-							</small>
-						</div>
-					</div>
-
-					<!-- <div class="form-group">
-            <label class="control-label col-md-12 col-sm-3 col-xs-12">harga sekarang </label>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="number" name="harga_sekarang" class="form-control"required placeholder="masukan harga barang sekarang" >
-              <small>  <font color="red">harga barang sekarang wajib isi</font></small>
-            </div>
-          </div> -->
-
-					<!-- <div class="form-group">
-            <label class="control-label col-md-12 col-sm-3 col-xs-12">perubahan </label>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="number" name="perubahan" class="form-control"required>
-              <small>  <font color="red">perubahan sekarang wajib isi</font></small>
-            </div>
-          </div> -->
-
-					<!-- <div class="form-group">
-            <label class="control-label col-md-12 col-sm-3 col-xs-12">keterangan </label>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="text" name="keterangan" class="form-control"required placeholder="masukan keterangan" >
-              <small>  <font color="red">perubahan sekarang wajib isi</font></small>
-            </div>
-          </div> -->
-
-
-
-			</div>
-
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Save</button>
-			</div>
-			</form>
-		</div>
-	</div>
-</div>
 
 <!-- modal konfirmasi hapus data -->
 <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 	<div class="modal-dialog modal-sm" role="document">
 		<div class="modal-content">
-			<form action="<?=base_url();?>c_admin/deleteHarga" method="post">
+			<form action="<?=base_url();?>c_admin/deleteKelolaHarga" method="post">
 				<div class="modal-header">
 					<h5 class="modal-title">Konfirmasi Hapus</h5>
 
@@ -377,7 +291,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label for="">Harga Baru</label>
+					<label for="">Harga Baru (update harga)</label>
 					<input type="text" name="" id="harga_sekarang" class="form-control" placeholder=""
 						aria-describedby="helpId">
 					<small id="helpId" class="text-error eharga-sekarang"></small>
@@ -385,7 +299,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" onclick="prosesPerbaruiHarga()">Update Harga Terbaru</button>
+				<button type="button" class="btn btn-primary" onclick="prosesPerbaruiHarga()"> <i class="fa fa-refresh"> Update Harga </i></button>
 			</div>
 		</div>
 	</div>
@@ -418,7 +332,7 @@
 
 	})
 
-	function deleteHarga(id) {
+	function deleteKelolaHarga(id) {
 		$("#id").val(id);
 		$("#konfirmasi").modal("show");
 	}

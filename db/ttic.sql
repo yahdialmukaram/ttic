@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 31, 2022 at 05:58 AM
+-- Generation Time: Jun 09, 2022 at 11:26 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -39,9 +39,7 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_barang`, `nama_barang`, `satuan`, `tanggal`) VALUES
-(1, 'beras', 'kg', '23-05-2022, 12:56:53'),
-(2, 'beras super', 'kg', '24-05-2022, 12:36:03'),
-(3, 'beras solok', 'kg', '24-05-2022, 21:09:11');
+(11, 'papan tulis', 'kg', '09-06-2022, 16:04:54');
 
 -- --------------------------------------------------------
 
@@ -53,17 +51,16 @@ CREATE TABLE `tb_harga` (
   `id_harga` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
   `harga` varchar(255) NOT NULL,
-  `tgl_input` varchar(255) NOT NULL
+  `tgl_input` varchar(255) NOT NULL,
+  `selisih_harga` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_harga`
 --
 
-INSERT INTO `tb_harga` (`id_harga`, `id_barang`, `harga`, `tgl_input`) VALUES
-(8, 2, '11000', '24-05-2022, 21:11:58'),
-(9, 3, '40000', '24-05-2022, 21:35:35'),
-(11, 1, '4000', '26-05-2022, 19:29:03');
+INSERT INTO `tb_harga` (`id_harga`, `id_barang`, `harga`, `tgl_input`, `selisih_harga`) VALUES
+(46, 11, '40000', '09-06-2022, 16:51:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -73,9 +70,17 @@ INSERT INTO `tb_harga` (`id_harga`, `id_barang`, `harga`, `tgl_input`) VALUES
 
 CREATE TABLE `tb_histori` (
   `id_histori` int(11) NOT NULL,
-  `id_harga` int(11) NOT NULL,
-  `harga_terakhir` varchar(255) NOT NULL
+  `id_barang` int(11) NOT NULL,
+  `harga_terakhir` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_histori`
+--
+
+INSERT INTO `tb_histori` (`id_histori`, `id_barang`, `harga_terakhir`, `created_at`) VALUES
+(47, 11, '45000', '2022-06-09 16:49:34');
 
 -- --------------------------------------------------------
 
@@ -97,7 +102,9 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `username`, `email`, `password`, `waktu`, `level`) VALUES
-(2, 'yahdi', 'yahdialmukaram03@gmail.com', '58d432c74ad12fc7d0f30300771bec18', '', 'admin');
+(2, 'yahdi', 'yahdialmukaram03@gmail.com', '58d432c74ad12fc7d0f30300771bec18', '', 'admin'),
+(3, 'pimpinan', 'pimpinan@gmail.com', '90973652b88fe07d05a4304f0a945de8', '', 'pimpinan'),
+(4, 'petugas', 'petugas@gmail.com', 'afb91ef692fd08c445e8cb1bab2ccf9c', '09-06-2022, 10:50:36', 'petugas');
 
 --
 -- Indexes for dumped tables
@@ -135,25 +142,25 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_harga`
 --
 ALTER TABLE `tb_harga`
-  MODIFY `id_harga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_harga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `tb_histori`
 --
 ALTER TABLE `tb_histori`
-  MODIFY `id_histori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_histori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
