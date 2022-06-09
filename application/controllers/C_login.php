@@ -70,13 +70,13 @@ class C_login extends CI_Controller
             if ($this->session->userdata('level') == 'admin') {
                 
                 redirect('c_admin');
-            }elseif ($this->session->userdata('level')=='siswa') {
+            }elseif ($this->session->userdata('level')=='pimpinan') {
                 
-                redirect('c_siswa');
+                redirect('c_admin');
                 
-            }elseif ($this->session->userdata('level')=='guru') {
+            }elseif ($this->session->userdata('level')=='petugas') {
                 
-                redirect('c_guru');
+                redirect('c_admin');
                 
             
             }

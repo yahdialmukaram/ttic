@@ -65,7 +65,7 @@
 
 					<form action="<?=base_url()?>c_cetak/cetakPertanggal" method="POST">
 						<input type="month" name="bulan" class="">
-						<button type="submit" class="btn btn-success">cetak pertanggal</button>
+						<button type="submit" class="btn btn-success">cetak perbulan</button>
 					</form>
 
 					<!-- <form action="" id="format_laporan">

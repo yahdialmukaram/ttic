@@ -11,12 +11,14 @@ class C_admin extends CI_Controller
         $this->load->model('Model', 'model');
         date_default_timezone_set('Asia/Jakarta');
         //Do your magic here
-        if ($this->session->userdata('level') !== 'admin' or
+        if (
+		// this->session->userdata('level') !== 'admin' or
             $this->session->userdata('logged_in') !== true
         ) {
             $this->session->set_flashdata('error', 'Anda tidak punya akses untuk menu admin');
             redirect('c_login');
         }
+	
     }
 
     public function index()
@@ -46,7 +48,7 @@ class C_admin extends CI_Controller
             'level' => $this->input->post('level'),
         ];
         $this->model->addAdmin($insert);
-        $this->session->set_flashdata('success', 'data admin telah ditambahkan');
+        $this->session->set_flashdata('success', 'data user telah ditambahkan');
         return redirect('c_admin/v_data_user');
 
     }

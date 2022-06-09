@@ -72,32 +72,52 @@
                 <img src="<?=base_url();?>images/admin.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome admin</span>
-                <h2><?=$this->session->userdata('nama');?></h2>
+								<span>Welcome</span>
+                <h2><?=$this->session->userdata('username');?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
-
+						
             <br />
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
+								<h3>General</h3>
+                
+								<ul class="nav side-menu">	
+								<?php if($this->session->userdata('level')=='admin'){ ?>
+									<li><a href="<?=base_url();?>c_admin/"><i class="fa fa-dashboard"></i> Home <span class="fa fa-chevron"></span></a>
+									<li><a href="<?=base_url();?>c_admin/v_data_user/"><i class="fa fa-user"></i> Data Admin TTIC </a>
+									<li><a href="<?=base_url();?>c_admin/v_data_barang/"><i class="fa fa-gift"></i> Data Barang </a>
+									<li><a href="<?=base_url();?>c_admin/v_harga/"><i class="fa fa-retweet"></i> Data Harga Barang </a>
+									<li><a href="<?=base_url();?>c_admin/v_data_kelola_harga"><i class="fa fa-dollar"></i> Data Kelola Harga</a>
+									
+									<?php } if($this->session->userdata('level')=='pimpinan'){ ?>
+										
+										<li><a href="<?=base_url();?>c_admin/"><i class="fa fa-dashboard"></i> Home <span class="fa fa-chevron"></span></a>
+										<li><a href="<?=base_url();?>c_admin/v_data_barang/"><i class="fa fa-gift"></i> Data Barang </a>
+										<li><a href="<?=base_url();?>c_admin/v_harga/"><i class="fa fa-retweet"></i> Data Harga Barang </a>
+										
+									<?php } if($this->session->userdata('level')=='petugas'){ ?>
+											<li><a href="<?=base_url();?>c_admin/"><i class="fa fa-dashboard"></i> Home <span class="fa fa-chevron"></span></a>
+											<li><a href="<?=base_url();?>c_admin/v_data_barang/"><i class="fa fa-gift"></i> Data Barang </a>
+											<li><a href="<?=base_url();?>c_admin/v_harga/"><i class="fa fa-retweet"></i> Data Harga Barang </a>
 
-                  <li><a href="<?=base_url();?>c_admin/"><i class="fa fa-dashboard"></i> Home <span class="fa fa-chevron"></span></a>
-                  <li><a href="<?=base_url();?>c_admin/v_data_user/"><i class="fa fa-user"></i> Data Admin TTIC </a>
-                  <li><a href="<?=base_url();?>c_admin/v_data_barang/"><i class="fa fa-gift"></i> Data Barang </a>
-                  <li><a href="<?=base_url();?>c_admin/v_harga/"><i class="fa fa-retweet"></i> Data Harga Barang </a>
-                  <li><a href="<?=base_url();?>c_admin/v_data_kelola_harga"><i class="fa fa-dollar"></i> Data Kelola Harga</a>
+        					<?php }; ?>
+
+
+							
                   <!-- <li><a href="<?=base_url();?>controller/data_selesai_memilih"><i class="fa fa-edit"></i> Data Harga Bahan Paangan</a> -->
                   <!-- <li><a href="<?=base_url();?>grafik"><i class="fa fa-edit"></i> Grafik</a> -->
                   </li>
                 </ul>
               </div>
             </div>
-            <!-- /sidebar menu -->
+        
+						<!-- /sidebar menu -->
+				
+
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">

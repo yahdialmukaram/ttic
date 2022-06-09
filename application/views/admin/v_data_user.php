@@ -148,6 +148,8 @@
             <div class="col-md-3 col-sm-9 col-xs-12">
               <select name="level" id="" class="form-control">
                 <option>admin</option>
+                <option>pimpinan</option>
+                <option>petugas</option>
               </select>
             </div>
           </div>
