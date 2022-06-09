@@ -47,7 +47,6 @@ class C_cetak extends CI_Controller {
 	{
 		// ob_start();
 		$bulan = $this->input->post('bulan');
-		
 		$data['title']='print data harga pertanggal';		
 		$data['dataHarga'] = $this->model->getHargaPertanggal($bulan);
 		// echo json_encode($data);
