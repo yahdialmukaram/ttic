@@ -91,7 +91,9 @@
 									<th>nama barang</th>
 									<th style="width: 4%">satuan</th>
 									<th>harga</th>
-									<th>Opsi</th>
+									<?php if($this->session->userdata('level')=='admin'){ ?>
+									<th style="width: 20%">Opsi</th>
+									<?php }; ?>
 								</tr>
 							</thead>
 							<tbody>
@@ -103,9 +105,18 @@
 									<td><?=$value['nama_barang'];?></td>
 									<td style="text-align: center;"><?=$value['satuan'];?></td>
 									<td><?="Rp. ".number_format($value['harga']);?></td>
-									<td><a href="#" onclick="deleteHarga(<?=$value['id_harga']?>);"
+
+
+									<?php if($this->session->userdata('level')=='admin'){ ?>
+									<td>
+										<a href="<?=base_url();?>" class="btn btn-primary btn-sm fa fa-edit edit"
+											data-id="<?=$value['id_harga']?>"> Edit Harga Barang</a>
+										<a href="#" onclick="deleteHarga(<?=$value['id_harga']?>);"
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash">
-												Delete</i> </a></td>
+												Delete</i> </a>
+									</td>
+									<?php }; ?>
+
 								</tr>
 								<?php endforeach; ?>
 
@@ -200,6 +211,76 @@
 	</div>
 </div>
 
+
+<!-- Modal edit -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 style="text-align: center;" class="modal-title">Edit Data</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form action="<?=base_url();?>c_admin/updateHarga" method="post" enctype="multipart/form-data">
+					<input type="text" hidden name="id" id="id_u">
+
+					<div class="form-group">
+						<label for="">nama barang</label>
+						<input type readonly="text" name="nama_barang" id="nama_barang_u" class="form-control" placeholder=""
+							aria-describedby="helpId">
+					</div>
+
+					<div class="form-group">
+						<label for="">Harga</label>
+						<input type="number" name="harga" id="harga_u" class="form-control" placeholder=""
+							aria-describedby="helpId">
+					</div>
+					<!-- <div class="form-group">
+                        <label for="">Nama</label>
+                        <input type="text" name="nama" id="nama_u" class="form-control" placeholder="" aria-describedby="helpId">
+                    </div>
+ -->
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary btn-sm fa fa-save"> Update</button>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$('.edit').on('click', function (e) {
+
+		e.preventDefault();
+
+		$('#edit').modal();
+		let id = $(this).data('id')
+		$.ajax({
+			type: "POST",
+			url: "<?=base_url('c_admin/getDataHarga')?>",
+			data: {
+				id: id
+			},
+			dataType: "JSON",
+			success: function (response) {
+				console.log(response);
+				$('#id').attr('hidden', true);
+				$('input[name=id]').val(response.id_harga);
+				$('#nama_barang_u').val(response.nama_barang);
+				$('#harga_u').val(response.harga);
+				$('#edit').modal('show');
+			}
+		});
+
+	})
+
+</script>
 
 <script>
 	function deleteHarga(id) {

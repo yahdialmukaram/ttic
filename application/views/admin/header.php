@@ -154,6 +154,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
 
+                    <li><a href="<?=base_url();?>c_user"><i class="fa fa-home pull-right"></i> Beranda</a></li>
                     <li><a href="<?=base_url();?>c_login/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>

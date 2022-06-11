@@ -190,13 +190,13 @@ class C_admin extends CI_Controller
     {
         $id = $this->input->post('id');
         $data = [
-            'nama_barang' => $this->input->post('nama_barang'),
-            'satuan' => $this->input->post('satuan'),
+            // 'id_barang' => $this->input->post('id_barang'),
+            // 'satuan' => $this->input->post('satuan'),
             'harga' => $this->input->post('harga'),
         ];
         $this->model->updateHarga($id, $data);
         $this->session->set_flashdata('success', 'data harga berhasil di update');
-        return redirect('c_admin/v_data_kelola_harga');
+        return redirect('c_admin/v_harga');
 
     }
     // use for update new price
