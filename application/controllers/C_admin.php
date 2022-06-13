@@ -124,20 +124,6 @@ class C_admin extends CI_Controller
         // var_dump($insert);
     }
 
-    // public function addHargaTerakhir()
-    // {
-    //     $insert =[
-    //         'tgl_input' => date('d-m-Y, H:i:s'),
-    //         'id_barang'=> $this->input->post('id_barang'),
-    //         'id_harga'=> $this->input->post('id_harga'),
-    //         'harga_terakhir'=> $this->input->post('harga_terakhir'),
-
-    //     ];
-    //     $this->model->addHargaTerakhir('tb_histori',$insert);
-    //     $this->session->set_flashdata('success', 'disimpan');
-    //     return redirect('c_admin/v_data_kelola_harga');
-
-    // }
 	public function deleteBarang()
 	{
 		$id =$this->input->post('id');
