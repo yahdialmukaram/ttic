@@ -226,7 +226,6 @@ class C_admin extends CI_Controller
                 'status' => 'sucess',
                 'message' => 'data berhasil di update',
             ];
-
         }
         echo json_encode($respon);
     }
