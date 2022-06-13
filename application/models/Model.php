@@ -178,8 +178,10 @@ class Model extends CI_Model
 	}
 	public function getHargaPertanggal($id)
 	{		
+		// $vbulan = date('m',strtotime($id));
+		$this->db->select('tgl_input');
 		$this->db->from('tb_harga');
-		// $this->db->query('select * from tb_harga where SUBSTRING(FROM_UNIXTIME(tgl_awal),1,4) ='.$tgl_awal.' order by id desc');
+		// $this->db->query('SELECT * FROM tb_harga GROUP BY id_harga');
 		// $this->db->where('tgl_input >=', $this->input->post('tgl_awal'));
 		$this->db->where('id_harga', $id);
 		$this->db->join('tb_barang', 'tb_barang.id_barang = tb_harga.id_barang', 'left');

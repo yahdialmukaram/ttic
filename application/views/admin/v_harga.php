@@ -63,10 +63,13 @@
 					<a href="<?=base_url();?>c_cetak/printDataHargaBarang" class="btn btn-success fa fa-print"
 						target="_blank"> Cetak Data Harga Barang</a>
 
-					<!-- <form action="<?=base_url()?>c_cetak/cetakPertanggal" method="POST">
+					<!-- <a href="<?=base_url();?>c_cetak/cetakPertanggal" class="btn btn-success fa fa-print"
+						target="_blank"> Cetak Data Harga pertanggal</a> -->
+
+					<form action="<?=base_url()?>c_cetak/cetakPertanggal" method="POST">
 						<input type="month" name="bulan" class="">
 						<button type="submit" class="btn btn-success">cetak perbulan</button>
-					</form> -->
+					</form>
 
 					<!-- <form action="" id="format_laporan">
 						<select name="" id="angkatan">
