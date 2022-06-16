@@ -78,7 +78,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. assets/template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script>  Qurrata A'yun
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script>  TTIC Padang
   <!-- Link back to Colorlib can't be removed. assets/template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

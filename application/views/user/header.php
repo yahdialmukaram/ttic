@@ -56,7 +56,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item"><a href="<?= base_url();?>c_user" class="nav-link pl-0">Home</a></li>
-	        	<li class="nav-item"><a href="<?= base_url();?>c_user/informasi" class="nav-link">Informasi</a></li>
+	        	<li class="nav-item"><a href="<?= base_url();?>c_user/informasiHarga" class="nav-link">Informasi Harga</a></li>
 	        	<!-- <li class="nav-item"><a href="<?= base_url();?>c_user/informasi" class="nav-link">Informasi</a></li> -->
 	        	<!-- <li class="nav-item"><a href="<?=base_url();?>c_user/teacher" class="nav-link">Guru</a></li> -->
 	        	<!-- <li class="nav-item"><a href="courses.html" class="nav-link">Courses</a></li> -->

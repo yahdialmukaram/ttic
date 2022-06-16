@@ -7,9 +7,7 @@ class C_user extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Model_user','model_user');
-        $this->load->model('Model','model');
-        $this->load->library('pagination');
+		$this->load->model('Model', 'model');
         
     }
     
@@ -23,6 +21,17 @@ class C_user extends CI_Controller {
         
     }
     
+	public function informasiHarga()
+	{
+		$data['title'] = 'info harga';
+		$data['dataHarga'] = $this->model->getHarga();
+		$this->load->view('user/header', $data);
+		$this->load->view('user/v_informasi_harga', $data);
+		$this->load->view('user/footer');
+		
+		
+	}
+
     // public function informasi()
     // {
     //     $data['title']='Informasi';
@@ -136,14 +145,14 @@ class C_user extends CI_Controller {
     //     $this->load->view('user/footer');
         
     // }
-    // public function contact()
-    // {
-    //     $data['title'] = 'kontak pengaduan';
-    //     $this->load->view('user/header', $data);
-    //     $this->load->view('user/contact');
-    //     $this->load->view('user/footer');
+    public function contact()
+    {
+        $data['title'] = 'kontak pengaduan/saran';
+        $this->load->view('user/header', $data);
+        $this->load->view('user/contact');
+        $this->load->view('user/footer');
         
-    // }
+    }
 
     public function send_saran()
     {
