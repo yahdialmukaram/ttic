@@ -25,6 +25,16 @@
 	<link href="<?= base_url();?>assets/build/css/custom.min.css" rel="stylesheet">
 </head>
 
+
+<style>
+    .login {
+		
+        background-image: url('<?=base_url();?>assets/template/images/13.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
 <body class="login">
 	<img src="<?=base_url();?>images/img.jpg" id="bg" alt=""
 		style="position:fixed; top:0; left:0; min-width:100%; min-height:100%;">
@@ -36,7 +46,7 @@
 			<div class="animate form login_form">
 				<section class="login_content">
 					<form action="<?= base_url();?>c_login/aksi_login" method='post' enctype="multipart/form-data">
-						<h1>Login </h1>
+						<h1>Login TTIC </h1>
 						<!-- alert simpan data -->
 						<?php if ($this->session->flashdata('success')):?>
 						<div id="pesan" class="alert alert-success" role="alert">

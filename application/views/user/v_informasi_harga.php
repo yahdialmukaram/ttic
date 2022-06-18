@@ -1,6 +1,6 @@
 
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('<?=base_url();?>images/qur.jpg');">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('<?=base_url();?>assets/template/images/9.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">

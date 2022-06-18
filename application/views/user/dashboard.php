@@ -7,19 +7,43 @@
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-10 text-center ftco-animate">
-            <h1 class="mb-4">Selamat Datang <span>di TTIC</span></h1>
+            <h1 class="mb-4">Selamat Datang <span>di TTIC Padang</span></h1>
 			<p><a href="<?=base_url();?>c_login" class="btn btn-secondary px-4 py-3 mt-3">Login</a></p>
           </div>
         </div>
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(assets/template/images/lam.jpg);">
+      <div class="slider-item" style="background-image:url(assets/template/images/2.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-10 text-center ftco-animate">
-		  <h1 class="mb-4">Selamat Datang <span>di TTIC</span></h1>
+		  <h1 class="mb-4">Selamat Datang <span>di TTIC Padang</span></h1>
+			<p><a href="<?=base_url();?>c_login" class="btn btn-secondary px-4 py-3 mt-3">Login</a></p>
+			</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image:url(assets/template/images/4.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-10 text-center ftco-animate">
+		  <h1 class="mb-4">Selamat Datang <span>di TTIC Padang</span></h1>
+			<p><a href="<?=base_url();?>c_login" class="btn btn-secondary px-4 py-3 mt-3">Login</a></p>
+			</div>
+        </div>
+        </div>
+      </div>
+ 
+	  <div class="slider-item" style="background-image:url(assets/template/images/6.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-10 text-center ftco-animate">
+		  <h1 class="mb-4">Selamat Datang <span>di TTIC Padang</span></h1>
 			<p><a href="<?=base_url();?>c_login" class="btn btn-secondary px-4 py-3 mt-3">Login</a></p>
 			</div>
         </div>
@@ -646,28 +670,28 @@
     	<div class="container-wrap">
     		<div class="row no-gutters">
 					<div class="col-md-3 ftco-animate">
-						<a href="template/images/image_1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(assets/template/images/sdit.jpg);">
+						<a href="template/images/image_1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(assets/template/images/2.jpg);">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="template/images/image_2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(assets/template/images/sdit3.jpg);">
+						<a href="template/images/image_2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(assets/template/images/7.jpg);">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="template/images/image_3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(assets/template/images/sdit1.jpg);">
+						<a href="template/images/image_3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(assets/template/images/9.jpg);">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="template/images/image_4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(assets/template/images/qur.jpg);">
+						<a href="template/images/image_4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(assets/template/images/8.jpg);">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
