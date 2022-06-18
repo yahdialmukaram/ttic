@@ -8,6 +8,7 @@ class C_user extends CI_Controller {
     {
         parent::__construct();
 		$this->load->model('Model', 'model');
+
         
     }
     

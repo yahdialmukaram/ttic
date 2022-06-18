@@ -57,6 +57,7 @@
 							<input type="password" name="password" class="form-control" placeholder="Password" required="" />
 						</div>
 						<div>
+							<a href="<?=base_url('c_user');?>">Halaman Beranda</a>
 							<button type="submit" class="btn btn-default submit btn-sm">Login</button>
 							<a class="reset_pass" href="#">Lost your password?</a>
 						</div>
