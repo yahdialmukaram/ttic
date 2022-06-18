@@ -50,9 +50,9 @@
 					</div>
 					<div class="col-md-6 d-flex align-items-stretch">
 						<!-- <div id="map"></div> -->
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18455.68079556716!2d100.59037758558128!3d-0.46418086905477174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd52d6aefdccbad%3A0xf65d2d89fb2510b4!2sSDIT%20QURRATA%20A&#39;YYUN%20BATUSANGKAR!5e1!3m2!1sid!2sid!4v1625814490003!5m2!1sid!2sid" width="800" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.358582639132!2d100.37951341475356!3d-0.8698017993654819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4c7a5a6754cd3%3A0xe5a566a1420d80d3!2sToko%20Tani%20Indonesia%20Center!5e0!3m2!1sid!2sid!4v1655556946842!5m2!1sid!2sid" width="800" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         
-          </div>
+			    </div>
 				</div>
 			</div>
 		</section>
