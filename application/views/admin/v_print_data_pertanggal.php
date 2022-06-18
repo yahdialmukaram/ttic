@@ -65,7 +65,7 @@
         </thead>
         <?php
                $no = 1;
-               foreach ($dataHarga as $key => $value):?>
+               foreach ($printPertanggal as $key => $value):?>
             <tbody>
                 <tr>
                     <td>

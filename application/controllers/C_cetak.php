@@ -18,7 +18,7 @@ class C_cetak extends CI_Controller {
 	public function printDataHargaBarang()
 	{
 		$data['title']='print data harga barang';
-		$data['dataHarga']=$this->model->getHArga();
+		$data['dataHarga']=$this->model->getHarga();
 		$mpdf = new Mpdf\Mpdf(['format'=>'Legal']);
         $mpdf->AddPage('L');
         $cetak= $this->load->view('admin/v_print_data_harga',$data, true);
@@ -47,14 +47,15 @@ class C_cetak extends CI_Controller {
 	{
 		// ob_start();
 		$bulan = $this->input->post('bulan');
+		
 		$data['title']='print data harga pertanggal';		
-		$data['dataHarga'] = $this->model->getHargaPertanggal($bulan);
-		// echo json_encode($data);
-		$mpdf = new Mpdf\Mpdf(['format'=>'Legal']);
-        $mpdf->AddPage('L');
-		$cetak = $this->load->view('admin/v_print_data_pertanggal', $data, true);
-		$mpdf->WriteHtml($cetak);
-        $mpdf->Output();
+		$data['printPertanggal'] = $this->model->getHargaPertanggal($bulan);
+		echo json_encode($data['printPertanggal']);
+		// $mpdf = new Mpdf\Mpdf(['format'=>'Legal']);
+        // $mpdf->AddPage('L');
+		// $cetak = $this->load->view('admin/v_print_data_pertanggal', $data, true);
+		// $mpdf->WriteHtml($cetak);
+        // $mpdf->Output();
 		
 	}
 	

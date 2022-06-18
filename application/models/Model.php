@@ -27,6 +27,24 @@ class Model extends CI_Model
         $this->db->order_by('id_barang', 'desc');
         return $this->db->get()->result_array();
     }
+	public function kodeBarangOtomatis()
+	{
+		$this->db->select('RIGHT(tb_barang.kode_barang,2) as kode_barang', FALSE);
+		$this->db->order_by('kode_barang', 'desc');
+		$this->db->limit(1);
+		$query = $this->db->get('tb_barang');
+		if ($query->num_rows() > 0) {
+			$data = $query->row();
+			$kode = intval($data->kode_barang)+1;
+		}else {
+			$kode = 1;
+		}
+		$tgl=date('dmY'); 
+        $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);    
+        $kodetampil = "KD"."5".$tgl.$batas;  //format kode
+        return $kodetampil;  
+		
+	}
 
     public function addBarang($data)
     {
@@ -181,9 +199,9 @@ class Model extends CI_Model
 		// $vbulan = date('m',strtotime($id));
 		$this->db->select('tgl_input');
 		$this->db->from('tb_harga');
-		// $this->db->query('SELECT * FROM tb_harga GROUP BY id_harga');
-		// $this->db->where('tgl_input >=', $this->input->post('tgl_awal'));
-		$this->db->where('id_harga', $id);
+		$this->db->query("SELECT * FROM tb_harga WHERE tgl_input = '$id'");
+		// $this->db->where('tgl_input',$id);
+		// $this->db->where('id_harga', $id);
 		$this->db->join('tb_barang', 'tb_barang.id_barang = tb_harga.id_barang', 'left');
 		return $this->db->get()->result_array();
 	}

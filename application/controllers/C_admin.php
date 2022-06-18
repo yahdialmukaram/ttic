@@ -64,13 +64,15 @@ class C_admin extends CI_Controller
     public function addBarang()
     {
         $insert = [
+            'kode_barang' => $this->input->post('kode_barang'),
             'nama_barang' => $this->input->post('nama_barang'),
             'satuan' => $this->input->post('satuan'),
             // 'harga_sebelumnya'=> $this->input->post('harga_sebelumnya'),
             // 'harga_sekarang'=> $this->input->post('harga_sekarang'),
             // 'perubahan'=> $this->input->post('perubahan'),
             // 'keterangan'=> $this->input->post('keterangan'),
-            'tanggal' => date('d-m-Y, H:i:s'),
+            'tanggal' => date('d-m-Y'),
+            // 'tanggal' => date('d-m-Y, H:i:s'),
         ];
         $this->model->addBarang($insert);
         $this->session->set_flashdata('success', 'data barang telah ditambahkan');
@@ -81,6 +83,7 @@ class C_admin extends CI_Controller
     public function v_data_barang()
     {
         $title['title'] = 'data barang';
+		$data['kodeBarangOtomatis'] = $this->model->kodeBarangOtomatis();
         $data['dataBarang'] = $this->model->getBarang();
         $this->load->view('admin/header', $title);
         $this->load->view('admin/v_data_barang', $data);
@@ -112,7 +115,7 @@ class C_admin extends CI_Controller
 		}
 		
 		$insert = [
-			'tgl_input' => date('d-m-Y, H:i:s'),
+			'tgl_input' => date('d-m-Y'),
             'id_barang' => $this->input->post('id_barang'),
             'id_barang' => $this->input->post('id_barang'),
             'harga' => $this->input->post('harga'),

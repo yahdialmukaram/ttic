@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 09, 2022 at 11:26 AM
+-- Generation Time: Jun 18, 2022 at 07:20 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_barang` (
   `id_barang` int(11) NOT NULL,
+  `kode_barang` varchar(255) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
   `satuan` varchar(30) NOT NULL,
   `tanggal` varchar(255) NOT NULL
@@ -38,8 +39,10 @@ CREATE TABLE `tb_barang` (
 -- Dumping data for table `tb_barang`
 --
 
-INSERT INTO `tb_barang` (`id_barang`, `nama_barang`, `satuan`, `tanggal`) VALUES
-(11, 'papan tulis', 'kg', '09-06-2022, 16:04:54');
+INSERT INTO `tb_barang` (`id_barang`, `kode_barang`, `nama_barang`, `satuan`, `tanggal`) VALUES
+(17, 'KD519062022001', 'peci d', 'kg', '19-06-2022, 02:04:05'),
+(18, 'KD519062022002', 'beras padang', 'kg', '19-06-2022, 02:04:14'),
+(19, 'KD519062022003', 'papan tulis', 'kg', '19-06-2022');
 
 -- --------------------------------------------------------
 
@@ -60,7 +63,8 @@ CREATE TABLE `tb_harga` (
 --
 
 INSERT INTO `tb_harga` (`id_harga`, `id_barang`, `harga`, `tgl_input`, `selisih_harga`) VALUES
-(46, 11, '40000', '09-06-2022, 16:51:06', NULL);
+(6, 19, '900000', '19-06-2022', NULL),
+(7, 18, '60000', '19-06-2022', NULL);
 
 -- --------------------------------------------------------
 
@@ -80,7 +84,9 @@ CREATE TABLE `tb_histori` (
 --
 
 INSERT INTO `tb_histori` (`id_histori`, `id_barang`, `harga_terakhir`, `created_at`) VALUES
-(47, 11, '45000', '2022-06-09 16:49:34');
+(6, 18, '900000', '2022-06-19 02:07:49'),
+(7, 18, '60000', '2022-06-19 02:11:47'),
+(8, 19, '900000', '2022-06-19 02:12:00');
 
 -- --------------------------------------------------------
 
@@ -142,19 +148,19 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_harga`
 --
 ALTER TABLE `tb_harga`
-  MODIFY `id_harga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_harga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_histori`
 --
 ALTER TABLE `tb_histori`
-  MODIFY `id_histori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_histori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

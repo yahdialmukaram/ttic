@@ -64,6 +64,7 @@
 							<thead>
 								<tr>
 									<th style="width: 1%;">No</th>
+									<th style="width: 15%;">kode barang</th>
 									<th>nama barang</th>
 									<th style="width: 4%">satuan</th>
 									<th style="width: 10%">opsi</th>
@@ -77,6 +78,7 @@
                   foreach ($dataBarang as $key => $value):?>
 								<tr>
 									<td><?=$no++?></td>
+									<td><?=$value['kode_barang'];?></td>
 									<td><?=$value['nama_barang'];?></td>
 									<td><?=$value['satuan'];?></td>
 									<td><a href="#" onclick="deleteBarang(<?= $value['id_barang']?>);" class="btn btn-danger btn-xs"> <i
@@ -106,6 +108,13 @@
 			<div class="modal-body">
 
 				<form action="<?=base_url();?>c_admin/addBarang" method="POST" enctype="multipart/form-data">
+
+					<div class="form-group">
+						<label class="control-label col-md-12 col-sm-3 col-xs-12">kode barang</label>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<input type readonly="text" name="kode_barang" class="form-control" value="<?=$kodeBarangOtomatis; ?>">
+						</div>
+					</div>
 
 					<div class="form-group">
 						<label class="control-label col-md-12 col-sm-3 col-xs-12">nama barang</label>

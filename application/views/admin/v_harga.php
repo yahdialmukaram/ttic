@@ -90,6 +90,7 @@
 							<thead>
 								<tr>
 									<th style="width: 1%;">No</th>
+									<th style="width: 15%;">kode barang</th>
 									<th>tanggal input</th>
 									<th>nama barang</th>
 									<th style="width: 4%">satuan</th>
@@ -104,6 +105,7 @@
                         foreach ($dataHarga as $key => $value):?>
 								<tr>
 									<td><?=$no++?></td>
+									<td><?=$value['kode_barang'];?></td>
 									<td><?=$value['tgl_input'];?></td>
 									<td><?=$value['nama_barang'];?></td>
 									<td style="text-align: center;"><?=$value['satuan'];?></td>
