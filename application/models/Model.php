@@ -194,15 +194,27 @@ class Model extends CI_Model
 		return $this->db->get()->result_array();
 		
 	}
-	public function getHargaPertanggal($id)
+	public function getHargaPertanggal($bulan,$tahun)
 	{		
 		// $vbulan = date('m',strtotime($id));
-		$this->db->select('tgl_input');
+		$this->db->select('*');
 		$this->db->from('tb_harga');
-		$this->db->query("SELECT * FROM tb_harga WHERE tgl_input = '$id'");
-		// $this->db->where('tgl_input',$id);
-		// $this->db->where('id_harga', $id);
 		$this->db->join('tb_barang', 'tb_barang.id_barang = tb_harga.id_barang', 'left');
+		// $this->db->query("SELECT * FROM tb_harga WHERE tgl_input = '$bulan'");
+		$this->db->where('MONTH(tgl_input)',$bulan);
+		$this->db->where('YEAR(tgl_input)',$tahun);
+		// $this->db->where('id_harga', $id);
+		return $this->db->get()->result_array();
+	}
+	public function getHargaPerbulan($bulan,$tahun)
+	{		
+		$this->db->select('');
+		$this->db->from('tb_harga');
+		// $this->db->join('tb_barang', 'tb_barang.id_barang = tb_harga.id_barang', 'left');
+		// $this->db->query("SELECT * FROM tb_harga WHERE tgl_input = '$bulan'");
+		$this->db->where('MONTH(tgl_input)',$bulan);
+		$this->db->where('YEAR(tgl_input)',$tahun);
+		// $this->db->where('id_harga', $id);
 		return $this->db->get()->result_array();
 	}
 

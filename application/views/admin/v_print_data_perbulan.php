@@ -46,7 +46,7 @@
   <p style="text-align: center;"><u>KABUPATEN TANAH DATAR</u></p> -->
 
 
-
+ Bulan <?=$bulan?> tahun <?=$tahun?>
     <!-- <br> -->
     <h5>Tanggal Print :
         <!-- <?= date('d-m-Y');?> -->
@@ -65,7 +65,7 @@
         </thead>
         <?php
                $no = 1;
-               foreach ($printPertanggal as $key => $value):?>
+               foreach ($printPerbulan as $key => $value):?>
             <tbody>
                 <tr>
                     <td>

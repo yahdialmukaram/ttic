@@ -66,8 +66,38 @@
 					<!-- <a href="<?=base_url();?>c_cetak/cetakPertanggal" class="btn btn-success fa fa-print"
 						target="_blank"> Cetak Data Harga pertanggal</a> -->
 
-					<form action="<?=base_url()?>c_cetak/cetakPertanggal" method="POST">
-						<input type="month" name="bulan" class="">
+					<!-- <form action="<?=base_url()?>c_cetak/cetakPertanggal" method="POST"> -->
+					<form action="<?=base_url()?>c_cetak/cetakPerbulan" method="POST">
+						<!-- <input type="month" name="bulan" class=""> -->
+						<div class="col-sm-3">
+							
+							<label for="">bulan</label>
+					<select name="bulan" class="form-control" id="">
+						<?php 
+						$mulai = 1;
+						for ($i=$mulai; $i < $mulai  +12 ; $i++) { 
+							echo '<option value="'. $i .'">' . $i . '</option>';
+						}
+						?>
+					</select>
+					
+				</div>
+
+				<div class="col-sm-3">
+
+					<label for="">tahun</label>
+					<select name="tahun" class="form-control" id="">
+						<?php 
+						$mulai = date('Y') - 1;
+						for ($i = $mulai; $i < $mulai  +7 ; $i++) { 
+							echo '<option value="'. $i .'">' . $i . '</option>';
+						}
+						?>
+					</select>
+				</div>
+
+
+
 						<button type="submit" class="btn btn-success">cetak perbulan</button>
 					</form>
 
