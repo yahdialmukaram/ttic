@@ -26,39 +26,6 @@ class C_cetak extends CI_Controller
         $mpdf->Output();
     }
 
-    // public function tampilLaporanPerbulan()
-    // {
-    //     // $vtanggal = $this->input->post('vtanggal');
-    //     // $data['title']='print data harga barang';
-    //     // $mpdf = new Mpdf\Mpdf(['format'=>'Legal']);
-    //     // $mpdf->AddPage('L');
-    //     // $data ['dataHarga']= $this->model->tampilLaporanPerbulan($vtanggal);
-    //     // $cetak = $this->load->view('admin/v_print_data_perbulan', $data, true);
-    //     // $mpdf->WriteHtml($cetak);
-    //     // $mpdf->Output();
-    //     $vtanggal = $this->input->post('vtanggal');
-    //     $data['title'] = 'print data harga barang';
-    //     $data['dataHarga'] = $this->model->tampilLaporanPerbulan($vtanggal);
-    //     $this->load->view('admin/v_print_data_pertanggal', $data);
-
-    // }
-
-    // public function cetakPertanggal()
-    // {
-    //     // ob_start();
-    //     $bulan = $this->input->post('bulan');
-    //     $tahun = $this->input->post('tahun');
-
-    //     $data['title'] = 'print data harga pertanggal';
-    //     $data['printPertanggal'] = $this->model->getHargaPertanggal($bulan, $tahun);
-    //     echo json_encode($data['printPertanggal']);
-    //     // $mpdf = new Mpdf\Mpdf(['format'=>'Legal']);
-    //     // $mpdf->AddPage('L');
-    //     // $cetak = $this->load->view('admin/v_print_data_pertanggal', $data, true);
-    //     // $mpdf->WriteHtml($cetak);
-    //     // $mpdf->Output();
-
-    // }
     public function cetakPerbulan()
     {
         // ob_start();

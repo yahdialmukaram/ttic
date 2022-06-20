@@ -49,13 +49,14 @@
  Bulan <?=$bulan?> tahun <?=$tahun?>
     <!-- <br> -->
     <h5>Tanggal Print :
-        <!-- <?= date('d-m-Y');?> -->
+        <?= date('d-m-Y');?>
     </h5>
 
     <table>
         <thead>
             <tr>
                 <th>No</th>
+                <th style="width: 350px;">Kode Barang</th>
                 <th style="width: 350px;">Tanggal Input Barang</th>
                 <th style="width: 400px;">Nama Barang</th>
                 <th style="width: 100px;">Satuan</th>
@@ -70,6 +71,9 @@
                 <tr>
                     <td>
                         <?=$no++?>
+                    </td>
+                    <td style="text-align: center;">
+                        <?=$value['kode_barang'];?>
                     </td>
                     <td style="text-align: center;">
                         <?=$value['tgl_input'];?>

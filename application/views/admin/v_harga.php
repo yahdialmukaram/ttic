@@ -61,18 +61,14 @@
 					</button>
 
 					<a href="<?=base_url();?>c_cetak/printDataHargaBarang" class="btn btn-success fa fa-print"
-						target="_blank"> Cetak  Semua Harga Barang</a>
+						target="_blank"> Cetak Semua Harga Barang</a>
 
-					<!-- <a href="<?=base_url();?>c_cetak/cetakPertanggal" class="btn btn-success fa fa-print"
-						target="_blank"> Cetak Data Harga pertanggal</a> -->
-
-						
-
+						<!-- form cetak perbulan -->
 					<form action="<?=base_url()?>c_cetak/cetakPerbulan" method="POST">
-					
-					<div class="col-sm-4">
-					</div>	
-					<div class="col-sm-2">
+
+						<div class="col-sm-4">
+						</div>
+						<div class="col-sm-2">
 							<select name="bulan" class="form-control" id="">
 								<?php 
 						// $mulai = 1;
@@ -97,7 +93,7 @@
 						</div>
 
 						<div class="col-sm-2">
-						<select name="tahun" class="form-control" id="">
+							<select name="tahun" class="form-control" id="">
 								<?php 
 						$mulai = date('Y') - 1;
 						for ($i = $mulai; $i < $mulai  +7 ; $i++) { 
@@ -110,16 +106,16 @@
 								perbulan</i></button>
 					</form>
 
-					
+
 					<!-- laporan pertahun -->
 					<form action="<?=base_url()?>c_cetak/cetakPertahun" method="POST">
-					<div class="col-sm-4">
-					</div>	
-					<div class="col-sm-2">
-					</div>	
-					
-					<div class="col-sm-2">
-						<select name="tahun" class="form-control" id="">
+						<div class="col-sm-4">
+						</div>
+						<div class="col-sm-2">
+						</div>
+
+						<div class="col-sm-2">
+							<select name="tahun" class="form-control" id="">
 								<?php 
 						$mulai = date('Y') - 1;
 						for ($i = $mulai; $i < $mulai  +7 ; $i++) { 
