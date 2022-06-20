@@ -45,11 +45,11 @@
     <!-- <p style="text-align: center;">DATA PEMILIH TETAP (DPT) KECAMATAN BATIPUH SELATAN</p>
   <p style="text-align: center;"><u>KABUPATEN TANAH DATAR</u></p> -->
 
-
- Bulan <?=$bulan?> tahun <?=$tahun?>
+<h4 style="text-align: center;">Laporan Tahunan</h4>
+  Laporan Tahun <?=$tahun?>
     <!-- <br> -->
     <h5>Tanggal Print :
-        <!-- <?= date('d-m-Y');?> -->
+        <?= date('d-m-Y');?>
     </h5>
 
     <table>
@@ -65,7 +65,7 @@
         </thead>
         <?php
                $no = 1;
-               foreach ($printPerbulan as $key => $value):?>
+               foreach ($printPertahun as $key => $value):?>
             <tbody>
                 <tr>
                     <td>

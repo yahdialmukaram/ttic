@@ -61,58 +61,76 @@
 					</button>
 
 					<a href="<?=base_url();?>c_cetak/printDataHargaBarang" class="btn btn-success fa fa-print"
-						target="_blank"> Cetak Data Harga Barang</a>
+						target="_blank"> Cetak  Semua Harga Barang</a>
 
 					<!-- <a href="<?=base_url();?>c_cetak/cetakPertanggal" class="btn btn-success fa fa-print"
 						target="_blank"> Cetak Data Harga pertanggal</a> -->
 
-					<!-- <form action="<?=base_url()?>c_cetak/cetakPertanggal" method="POST"> -->
+						
+
 					<form action="<?=base_url()?>c_cetak/cetakPerbulan" method="POST">
-						<!-- <input type="month" name="bulan" class=""> -->
-						<div class="col-sm-3">
-							
-							<label for="">bulan</label>
-					<select name="bulan" class="form-control" id="">
-						<?php 
-						$mulai = 1;
-						for ($i=$mulai; $i < $mulai  +12 ; $i++) { 
-							echo '<option value="'. $i .'">' . $i . '</option>';
-						}
-						?>
-					</select>
 					
-				</div>
+					<div class="col-sm-4">
+					</div>	
+					<div class="col-sm-2">
+							<select name="bulan" class="form-control" id="">
+								<?php 
+						// $mulai = 1;
+						// for ($i=$mulai; $i < $mulai  +12 ; $i++) { 
+						// 	echo '<option value="'. $i .'">' . $i . '</option>';
+						// }
+						// ?>
+								<option value="1">januari</option>
+								<option value="2">februari</option>
+								<option value="3">maret</option>
+								<option value="4">april</option>
+								<option value="5">mei</option>
+								<option value="6">juni</option>
+								<option value="7">juli</option>
+								<option value="8">agustus</option>
+								<option value="9">september</option>
+								<option value="10">oktober</option>
+								<option value="11">november</option>
+								<option value="12">desember</option>
+							</select>
 
-				<div class="col-sm-3">
+						</div>
 
-					<label for="">tahun</label>
-					<select name="tahun" class="form-control" id="">
-						<?php 
+						<div class="col-sm-2">
+						<select name="tahun" class="form-control" id="">
+								<?php 
 						$mulai = date('Y') - 1;
 						for ($i = $mulai; $i < $mulai  +7 ; $i++) { 
 							echo '<option value="'. $i .'">' . $i . '</option>';
 						}
 						?>
-					</select>
-				</div>
-
-
-
-						<button type="submit" class="btn btn-success">cetak perbulan</button>
+							</select>
+						</div>
+						<button type="submit" class="btn btn-success"><i class="fa fa-print"> cetak
+								perbulan</i></button>
 					</form>
 
-					<!-- <form action="" id="format_laporan">
-						<select name="" id="angkatan">
-							<option value="0"> show all</option>
-							<?php foreach($dataHarga as $row):?>
-								<option value="<?= $row['id_harga']?>"><?= $row['tgl_input']?></option>
-								<?php endforeach ?>
-						</select>
-						<button type="submit" class="btn btn-danger">show data</button>
+					
+					<!-- laporan pertahun -->
+					<form action="<?=base_url()?>c_cetak/cetakPertahun" method="POST">
+					<div class="col-sm-4">
+					</div>	
+					<div class="col-sm-2">
+					</div>	
+					
+					<div class="col-sm-2">
+						<select name="tahun" class="form-control" id="">
+								<?php 
+						$mulai = date('Y') - 1;
+						for ($i = $mulai; $i < $mulai  +7 ; $i++) { 
+							echo '<option value="'. $i .'">' . $i . '</option>';
+						}
+						?>
+							</select>
+						</div>
+						<button type="submit" class="btn btn-success"><i class="fa fa-print"> cetak
+								pertahun</i></button>
 					</form>
-					<div class="col-md-12">
-						<div id="result"></div>
-					</div> -->
 
 					<div class="x_content">
 
@@ -263,8 +281,8 @@
 
 					<div class="form-group">
 						<label for="">nama barang</label>
-						<input type readonly="text" name="nama_barang" id="nama_barang_u" class="form-control" placeholder=""
-							aria-describedby="helpId">
+						<input type readonly="text" name="nama_barang" id="nama_barang_u" class="form-control"
+							placeholder="" aria-describedby="helpId">
 					</div>
 
 					<div class="form-group">

@@ -214,6 +214,17 @@ class Model extends CI_Model
         // $this->db->where('id_harga', $id);
         return $this->db->get()->result_array();
     }
+    public function getHargaPertahun($date)
+    {
+        $this->db->select('');
+        $this->db->from('tb_harga');
+        $this->db->join('tb_barang', 'tb_barang.id_barang = tb_harga.id_barang', 'left');
+        // $this->db->query("SELECT * FROM tb_harga WHERE tgl_input = '$bulan'");
+        $this->db->where('substr(tgl_input,6,7)', $date);
+
+        // $this->db->where('id_harga', $id);
+        return $this->db->get()->result_array();
+    }
 
 }
 

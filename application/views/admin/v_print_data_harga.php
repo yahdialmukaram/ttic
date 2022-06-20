@@ -36,7 +36,7 @@
     <!-- <img style=" width: 80px;height: 80px;" src="uploads/original_image/lambang.png" align="left"> -->
 
 
-    <img src="<?=base_url();?>images/admin.png" style="float:left; width: 90px; height: 90px;">
+    <!-- <img src="<?=base_url();?>images/admin.png" style="float:left; width: 90px; height: 90px;"> -->
     <h3 style="text-align: center;">TOKO TANI INDONESIA CENTER (TTIC)<br> PADANG<br>Komp.Perum. Asam Kapeh Malana Padang Telp. (0752) 711
         <hr>
     </h3>
