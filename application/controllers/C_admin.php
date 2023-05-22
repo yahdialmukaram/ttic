@@ -241,8 +241,7 @@ class C_admin extends CI_Controller
 	{
 		$id = $this->input->post('id');
 		$data = $this->model->findData('tb_user','id_user',$id);
-		echo json_encode($data);
-		
+		echo json_encode($data);	
 	}
 
 	public function updatePassword()
